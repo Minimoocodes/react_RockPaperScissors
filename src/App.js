@@ -18,8 +18,8 @@ const choices = {
 };
 
 function App() {
-  const [showUserSelect, setShowUserSelect] = useState(null);
-  const [showComputerSelect, setShowComputerSelect] = useState(null);
+  const [showUserSelect, setShowUserSelect] = useState("");
+  const [showComputerSelect, setShowComputerSelect] = useState("");
   const [userResult, setUserResult] = useState(null);
   let computerResult = null;
 
@@ -75,6 +75,12 @@ function App() {
     }
   };
 
+  const reset = () => {
+    setShowUserSelect(null);
+    setShowComputerSelect(null);
+    setUserResult(null);
+  };
+
   return (
     <div className="main">
       <div className="game_field">
@@ -109,6 +115,14 @@ function App() {
           />
         </button>
       </div>
+      <button
+        className="resetBtn"
+        onClick={() => {
+          reset();
+        }}
+      >
+        Reset
+      </button>
     </div>
   );
 }
